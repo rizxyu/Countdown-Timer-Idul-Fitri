@@ -1,0 +1,148 @@
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;IDUL FITRI🔥&lt;/title&gt;
+      &lt;script src=&quot;https://kit.fontawesome.com/c2536e7781.js&quot;&gt;&lt;/script&gt;
+        &lt;link rel=&quot;icon&quot; type=&quot;image&quot;href=&quot;https://github.com/carlxjoe/Countdown-Timer-Idul-Fitri/raw/main/20230221_182616.jpg&quot;&gt;
+    &lt;style&gt;
+/* general styling */
+:root {
+  --smaller: .75;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  align-items: center;
+  background-color: #ffd54f;
+  display: flex;
+  font-family: -apple-system, 
+    BlinkMacSystemFont, 
+    &quot;Segoe UI&quot;, 
+    Roboto, 
+    Oxygen-Sans, 
+    Ubuntu, 
+    Cantarell, 
+    &quot;Helvetica Neue&quot;, 
+    sans-serif;
+}
+
+.container {
+  color: #333;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-weight: normal;
+  letter-spacing: .125rem;
+  text-transform: uppercase;
+}
+
+li {
+  display: inline-block;
+  font-size: 1.5em;
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+li span {
+  display: block;
+  font-size: 4.5rem;
+}
+
+.box {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px 9px;
+  font-size: 30px;
+  margin: 10px 0px;
+  box-shadow: 4px 5px;
+}
+
+
+
+@media all and (max-width: 768px) {
+  h1 {
+    font-size: calc(1.5rem * var(--smaller));
+  }
+  
+  li {
+    font-size: calc(1.125rem * var(--smaller));
+  }
+  
+  li span {
+    font-size: calc(3.375rem * var(--smaller));
+  }
+}
+    &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;div class=&quot;container&quot;&gt;
+  &lt;h1 id=&quot;headline&quot;&gt;Hitung Mundur Hari Raya idul Fitri&lt;/h1&gt;
+  &lt;div id=&quot;countdown&quot;&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;span id=&quot;days&quot; class=&quot;box&quot;&gt;&lt;/span&gt;Hari&lt;/li&gt;
+      &lt;li&gt;&lt;span id=&quot;hours&quot; class=&quot;box&quot;&gt;&lt;/span&gt;Jam&lt;/li&gt;
+      &lt;li&gt;&lt;span id=&quot;minutes&quot; class=&quot;box&quot;&gt;&lt;/span&gt;Menit&lt;/li&gt;
+      &lt;li&gt;&lt;span id=&quot;seconds&quot; class=&quot;box&quot;&gt;&lt;/span&gt;Detik&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      &lt;/body&gt;
+      &lt;script&gt;
+      (function () {
+  const second = 1000,
+        minute = second * 60,
+        hour = minute * 60,
+        day = hour * 24;
+
+  //I&#39;m adding this section so I don&#39;t have to keep updating this pen every year :-)
+  //remove this if you don&#39;t need it
+  let today = new Date(),
+      dd = String(today.getDate()).padStart(2, &quot;0&quot;),
+      mm = String(today.getMonth() + 1).padStart(2, &quot;0&quot;),
+      yyyy = today.getFullYear(),
+      nextYear = yyyy,
+      dayMonth = &quot;04/21/&quot;,
+      birthday = dayMonth + yyyy;
+  
+  today = mm + &quot;/&quot; + dd + &quot;/&quot; + yyyy;
+  if (today &gt; birthday) {
+    birthday = dayMonth + nextYear;
+  }
+  //end
+  
+  const countDown = new Date(birthday).getTime(),
+      x = setInterval(function() {    
+
+        const now = new Date().getTime(),
+              distance = countDown - now;
+
+        document.getElementById(&quot;days&quot;).innerText = Math.floor(distance / (day)),
+          document.getElementById(&quot;hours&quot;).innerText = Math.floor((distance % (day)) / (hour)),
+          document.getElementById(&quot;minutes&quot;).innerText = Math.floor((distance % (hour)) / (minute)),
+          document.getElementById(&quot;seconds&quot;).innerText = Math.floor((distance % (minute)) / second);
+
+        //do something later when date is reached
+        if (distance &lt; 0) {
+          document.getElementById(&quot;headline&quot;).innerText = &quot;It&#39;s my birthday!&quot;;
+          document.getElementById(&quot;countdown&quot;).style.display = &quot;none&quot;;
+          document.getElementById(&quot;content&quot;).style.display = &quot;block&quot;;
+          clearInterval(x);
+        }
+        //seconds
+      }, 0)
+  }());
+      &lt;/script&gt;
+  &lt;/html&gt;
