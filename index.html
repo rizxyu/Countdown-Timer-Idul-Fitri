@@ -1,10 +1,10 @@
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;IDUL FITRI🔥&lt;/title&gt;
-      &lt;script src=&quot;https://kit.fontawesome.com/c2536e7781.js&quot;&gt;&lt;/script&gt;
-        &lt;link rel=&quot;icon&quot; type=&quot;image&quot;href=&quot;https://github.com/carlxjoe/Countdown-Timer-Idul-Fitri/raw/main/20230221_182616.jpg&quot;&gt;
-    &lt;style&gt;
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IDUL FITRI🔥</title>
+      <script src="https://kit.fontawesome.com/c2536e7781.js"></script>
+        <link rel="icon" type="image"href="https://github.com/carlxjoe/Countdown-Timer-Idul-Fitri/raw/main/20230221_182616.jpg">
+    <style>
 /* general styling */
 :root {
   --smaller: .75;
@@ -27,12 +27,12 @@ body {
   display: flex;
   font-family: -apple-system, 
     BlinkMacSystemFont, 
-    &quot;Segoe UI&quot;, 
+    "Segoe UI", 
     Roboto, 
     Oxygen-Sans, 
     Ubuntu, 
     Cantarell, 
-    &quot;Helvetica Neue&quot;, 
+    "Helvetica Neue", 
     sans-serif;
 }
 
@@ -85,40 +85,40 @@ li span {
     font-size: calc(3.375rem * var(--smaller));
   }
 }
-    &lt;/style&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-      &lt;div class=&quot;container&quot;&gt;
-  &lt;h1 id=&quot;headline&quot;&gt;Hitung Mundur Hari Raya idul Fitri&lt;/h1&gt;
-  &lt;div id=&quot;countdown&quot;&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;span id=&quot;days&quot; class=&quot;box&quot;&gt;&lt;/span&gt;Hari&lt;/li&gt;
-      &lt;li&gt;&lt;span id=&quot;hours&quot; class=&quot;box&quot;&gt;&lt;/span&gt;Jam&lt;/li&gt;
-      &lt;li&gt;&lt;span id=&quot;minutes&quot; class=&quot;box&quot;&gt;&lt;/span&gt;Menit&lt;/li&gt;
-      &lt;li&gt;&lt;span id=&quot;seconds&quot; class=&quot;box&quot;&gt;&lt;/span&gt;Detik&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-      &lt;/body&gt;
-      &lt;script&gt;
+    </style>
+    </head>
+    <body>
+      <div class="container">
+  <h1 id="headline">Hitung Mundur Hari Raya idul Fitri</h1>
+  <div id="countdown">
+    <ul>
+      <li><span id="days" class="box"></span>Hari</li>
+      <li><span id="hours" class="box"></span>Jam</li>
+      <li><span id="minutes" class="box"></span>Menit</li>
+      <li><span id="seconds" class="box"></span>Detik</li>
+    </ul>
+  </div>
+</div>
+      </body>
+      <script>
       (function () {
   const second = 1000,
         minute = second * 60,
         hour = minute * 60,
         day = hour * 24;
 
-  //I&#39;m adding this section so I don&#39;t have to keep updating this pen every year :-)
-  //remove this if you don&#39;t need it
+  //I'm adding this section so I don't have to keep updating this pen every year :-)
+  //remove this if you don't need it
   let today = new Date(),
-      dd = String(today.getDate()).padStart(2, &quot;0&quot;),
-      mm = String(today.getMonth() + 1).padStart(2, &quot;0&quot;),
+      dd = String(today.getDate()).padStart(2, "0"),
+      mm = String(today.getMonth() + 1).padStart(2, "0"),
       yyyy = today.getFullYear(),
       nextYear = yyyy,
-      dayMonth = &quot;04/21/&quot;,
+      dayMonth = "04/21/",
       birthday = dayMonth + yyyy;
   
-  today = mm + &quot;/&quot; + dd + &quot;/&quot; + yyyy;
-  if (today &gt; birthday) {
+  today = mm + "/" + dd + "/" + yyyy;
+  if (today > birthday) {
     birthday = dayMonth + nextYear;
   }
   //end
@@ -129,20 +129,20 @@ li span {
         const now = new Date().getTime(),
               distance = countDown - now;
 
-        document.getElementById(&quot;days&quot;).innerText = Math.floor(distance / (day)),
-          document.getElementById(&quot;hours&quot;).innerText = Math.floor((distance % (day)) / (hour)),
-          document.getElementById(&quot;minutes&quot;).innerText = Math.floor((distance % (hour)) / (minute)),
-          document.getElementById(&quot;seconds&quot;).innerText = Math.floor((distance % (minute)) / second);
+        document.getElementById("days").innerText = Math.floor(distance / (day)),
+          document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+          document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+          document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
 
         //do something later when date is reached
-        if (distance &lt; 0) {
-          document.getElementById(&quot;headline&quot;).innerText = &quot;It&#39;s my birthday!&quot;;
-          document.getElementById(&quot;countdown&quot;).style.display = &quot;none&quot;;
-          document.getElementById(&quot;content&quot;).style.display = &quot;block&quot;;
+        if (distance < 0) {
+          document.getElementById("headline").innerText = "It's my birthday!";
+          document.getElementById("countdown").style.display = "none";
+          document.getElementById("content").style.display = "block";
           clearInterval(x);
         }
         //seconds
       }, 0)
   }());
-      &lt;/script&gt;
-  &lt;/html&gt;
+      </script>
+  </html>
